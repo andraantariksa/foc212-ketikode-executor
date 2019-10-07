@@ -105,7 +105,7 @@ pub fn exec(exec_form: Form<ExecForm>, language_config: State<LanguageConfig>) -
                 }
             }
             let process = run(&config.command, &exec_form.stdin);
-            fs::remove_file(&format!("{}{}", TEMP_FILENAME, &config.extension));
+            fs::remove_file(&format!("sandbox/{}.{}", TEMP_FILENAME, &config.extension)).expect("Can't remove file");
             return match process {
                 Ok(result) => json!({
                     "stdout": result,
@@ -128,7 +128,4 @@ pub fn exec(exec_form: Form<ExecForm>, language_config: State<LanguageConfig>) -
             "success": false,
         });
     }
-    json!({
-        "success": true,
-    })
 }

@@ -2,16 +2,16 @@
 extension = "py"
 # compiler = ""
 # flag = ""
-command = "python sandbox/Submission.py"
+command = "python ./sandbox/Submission.py"
 
 [cpp]
 extension = "cpp"
 compiler = "g++"
-flag = "sandbox/Submission.cpp -O2 -o sandbox/exec"
+flag = "./sandbox/Submission.cpp -O2 -o ./sandbox/exec"
 command = "./sandbox/exec"
 
 [java]
 extension = "java"
 compiler = "javac"
-flag = "-s sandbox"
-command = "java sandbox/Submission"
+flag = "./sandbox/Submission.java -d sandbox"
+command = "java -cp ./sandbox Submission"
